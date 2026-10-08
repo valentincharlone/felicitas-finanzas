@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: `${siteConfig.name} | Finanzas e inversiones`,
   description: siteConfig.tagline + " Asesoría financiera para personas y empresas.",
+  // TODO(lanzamiento): sacar cuando Feli valide los textos y el sitio pase a su dominio.
+  robots: { index: false, follow: false },
   openGraph: {
     type: "website",
     locale: "es_AR",
