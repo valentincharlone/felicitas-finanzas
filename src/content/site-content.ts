@@ -25,6 +25,9 @@ export const siteConfig = {
   cnv: {
     role: "Agente Productor",
     number: "1782",
+    // Registro público oficial (verificado el 2026-10-08). Muestra también su CUIT: confirmar con Feli.
+    registryUrl:
+      "https://www.cnv.gov.ar/SitioWeb/RegistrosPublicos/DetallesRegistrosPublicos/104541?tipoEntidadId=2&tipoAgente=302",
   },
   year: 2026,
   links: {
@@ -241,4 +244,5 @@ export const footerContent = {
     "La información de este sitio es de carácter general y no constituye una recomendación de inversión. Toda inversión implica riesgos y los rendimientos pasados no garantizan resultados futuros.",
   registry: `${siteConfig.cnv.role} registrada en la Comisión Nacional de Valores, matrícula N° ${siteConfig.cnv.number}.`,
   location: siteConfig.location,
+  verify: "Verificá la matrícula en la CNV",
 } as const;
