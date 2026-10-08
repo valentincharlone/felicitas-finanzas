@@ -57,14 +57,14 @@ export function SituationsSection() {
           {/* Sombra teñida de verde (no el gris genérico) + borde fino: la tarjeta se despega del fondo sin pesar. */}
           <div
             aria-live="polite"
-            className="rounded-2xl border border-line/50 bg-surface/40 p-8 shadow-[0_1px_2px_rgba(11,74,60,0.05),0_18px_40px_-18px_rgba(11,74,60,0.22)] max-md:hidden md:sticky md:top-27.5 lg:p-10"
+            className="rounded-2xl border border-line/50 bg-surface p-8 shadow-[0_1px_2px_rgba(11,74,60,0.05),0_14px_32px_-16px_rgba(11,74,60,0.16)] max-md:hidden md:sticky md:top-27.5 lg:p-10"
           >
             {/* Sans (la explicación de Feli), distinta de la serif de las preguntas (la situación del cliente).
-                min-h de 4 líneas: el botón no se mueve al cambiar de respuesta.
+                min-h de 3 líneas (lo que ocupan casi todas en escritorio): el botón no se mueve al cambiar de respuesta.
                 key: al cambiar de situación la respuesta se vuelve a montar y entra con la animación. */}
             <p
               key={active}
-              className="mb-5 min-h-[calc(4*1.55em)] animate-in text-[22px] leading-[1.55] text-pretty text-ink duration-300 fade-in-0 slide-in-from-bottom-2 motion-reduce:animate-none"
+              className="mb-5 min-h-[calc(3*1.55em)] animate-in text-[22px] leading-[1.55] text-pretty text-ink duration-300 fade-in-0 slide-in-from-bottom-2 motion-reduce:animate-none"
             >
               {current.answer}
             </p>

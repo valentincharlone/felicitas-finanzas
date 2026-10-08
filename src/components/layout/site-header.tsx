@@ -52,28 +52,42 @@ export function SiteHeader() {
         <a href="#top" className="font-serif text-[22px] tracking-[-0.01em] whitespace-nowrap sm:text-[26px]">
           {siteConfig.name}
         </a>
-        <nav aria-label="Secciones" className="ml-auto max-lg:hidden">
-          <ul className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="text-[15px] text-ink-soft transition-colors hover:text-ink">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        {/* invisible (no solo opacity-0): mientras está oculto tampoco se puede enfocar con el teclado. */}
-        <Button
-          asChild
-          size="sm"
-          className={cn(
-            "transition-[opacity,visibility] duration-300 motion-reduce:transition-none",
-            heroCtaVisible ? "invisible opacity-0" : "visible opacity-100",
-          )}
-        >
-          <a href="#formulario">{heroContent.cta}</a>
-        </Button>
+        <div className="flex items-center">
+          <nav aria-label="Secciones" className="max-lg:hidden">
+            <ul className="flex items-center gap-8">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-[15px] text-ink-soft transition-colors hover:text-ink">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {/* Mientras está oculto, el lugar del botón se pliega (grid 0fr → 1fr) para que el menú
+              quede pegado al borde derecho; al aparecer, se abre y el menú se corre. */}
+          <div
+            className={cn(
+              "grid transition-[grid-template-columns] duration-300 motion-reduce:transition-none",
+              heroCtaVisible ? "grid-cols-[0fr]" : "grid-cols-[1fr]",
+            )}
+          >
+            {/* p-1 -m-1: deja lugar al anillo de foco, que si no quedaría recortado por overflow-hidden. */}
+            <div className="-m-1 overflow-hidden p-1">
+              {/* invisible (no solo opacity-0): mientras está oculto tampoco se puede enfocar con el teclado. */}
+              <Button
+                asChild
+                size="sm"
+                className={cn(
+                  "transition-[opacity,visibility] duration-300 motion-reduce:transition-none lg:ml-8",
+                  heroCtaVisible ? "invisible opacity-0" : "visible opacity-100",
+                )}
+              >
+                <a href="#formulario">{heroContent.cta}</a>
+              </Button>
+            </div>
+          </div>
+        </div>
       </Container>
     </header>
   );
