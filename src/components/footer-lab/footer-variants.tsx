@@ -109,3 +109,40 @@ export function FooterSignature() {
     </footer>
   );
 }
+
+/** C. Mínimo: una fila con nombre y links, y el texto legal chico debajo. */
+export function FooterMinimal() {
+  return (
+    <footer className="border-t border-line py-10 text-sm text-ink-soft">
+      <Container>
+        <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
+          <p className="font-serif text-[22px] text-ink">{siteConfig.name}</p>
+          <nav aria-label="Enlaces" className="flex flex-wrap gap-x-6">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                {...(link.external && external)}
+                className="inline-block py-2 font-medium text-ink hover:underline"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div className="mt-6 grid gap-3 border-t border-line pt-6 text-[13px] md:grid-cols-[1fr_1.4fr] md:gap-12">
+          <p>
+            {footerContent.registry} <VerifyLink className="text-ink" />
+          </p>
+          <p>{footerContent.disclaimer}</p>
+        </div>
+        <div className="mt-6 flex flex-wrap justify-between gap-2 text-[13px]">
+          <span>
+            © {siteConfig.year} {siteConfig.name}. {footerContent.location}.
+          </span>
+          <Credit />
+        </div>
+      </Container>
+    </footer>
+  );
+}

@@ -7,47 +7,38 @@ const footerLinks = [
   { label: heroContent.cta, href: "#formulario", external: false },
 ];
 
-const external = { target: "_blank", rel: "noopener noreferrer" } as const;
-
-/**
- * Footer mínimo (variante C del /footer-lab): después del bloque verde del formulario,
- * solo nombre, links, el legal en letra chica y el link para verificar la matrícula.
- */
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line py-10 text-sm text-ink-soft">
+    <footer className="pt-14 pb-12 text-sm text-ink-soft">
       <Container>
-        <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
-          <p className="font-serif text-[22px] text-ink">{siteConfig.name}</p>
-          <nav aria-label="Enlaces" className="flex flex-wrap gap-x-6">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
+          <div className="space-y-2.5">
+            <p className="mb-3 font-serif text-[26px] text-ink">{siteConfig.name}</p>
+            <p className="max-w-[62ch]">
+              {footerContent.registry} {footerContent.location}.
+            </p>
+            <p className="max-w-[62ch]">{footerContent.disclaimer}</p>
+          </div>
+          <nav aria-label="Enlaces" className="flex flex-col md:items-end">
             {footerLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                {...(link.external && external)}
                 className="inline-block py-2 font-medium text-ink hover:underline"
+                {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
               >
                 {link.label}
               </a>
             ))}
           </nav>
         </div>
-        <div className="mt-6 grid gap-3 border-t border-line pt-6 text-[13px] md:grid-cols-[1fr_1.4fr] md:gap-12">
-          <p>
-            {footerContent.registry}{" "}
-            <a href={siteConfig.cnv.registryUrl} {...external} className="inline-block py-1 text-ink underline underline-offset-4">
-              {footerContent.verify}
-            </a>
-          </p>
-          <p>{footerContent.disclaimer}</p>
-        </div>
-        <div className="mt-6 flex flex-wrap justify-between gap-2 text-[13px]">
+        <div className="mt-8 flex flex-wrap justify-between gap-2 border-t border-line pt-5">
           <span>
-            © {siteConfig.year} {siteConfig.name}. {footerContent.location}.
+            © {siteConfig.year} {siteConfig.name}
           </span>
           <span>
             Sitio por{" "}
-            <a href={siteConfig.credit.href} {...external} className="underline">
+            <a href={siteConfig.credit.href} target="_blank" rel="noopener noreferrer" className="underline">
               {siteConfig.credit.label}
             </a>
           </span>
