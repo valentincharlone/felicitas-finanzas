@@ -29,7 +29,9 @@ export const leadSchema = z.object({
     .string()
     .trim()
     .min(3, { error: "Escribí tu nombre y apellido." })
-    .max(120),
+    .max(120)
+    // Evita que pongan el mail o el teléfono en este campo (llega como asunto del aviso).
+    .refine((v) => !/[@\d]/.test(v), { error: "Escribí solo tu nombre y apellido (sin mail ni números)." }),
   email: z.email({ error: "Revisá el email: falta el @ o el dominio." }),
   phone: z
     .string()
