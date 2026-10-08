@@ -1,60 +1,67 @@
-import { Container } from "@/components/shared/container";
-import { PortraitPhoto } from "@/components/shared/portrait-photo";
-import { aboutContent, siteConfig } from "@/content/site-content";
+import Image from "next/image";
 
+import { Container } from "@/components/shared/container";
+import { aboutContent } from "@/content/site-content";
+
+const youtubeId = (href: string) => new URL(href).searchParams.get("v") ?? "";
+
+/**
+ * Sobre mí (variante C del /sobre-mi-lab, sin la foto): relato y credenciales arriba,
+ * y los episodios de Cash is King con su miniatura como prueba de trayectoria.
+ */
 export function AboutSection() {
   return (
     <section id="sobre-mi" aria-labelledby="about-title" className="scroll-mt-[68px] py-16 md:py-28">
-      <Container className="grid items-start gap-10 md:grid-cols-[240px_1fr] md:gap-20">
-        {/* Foto provisoria de 447px: no pasar de 240px de ancho para que no se pixelee. */}
-        <PortraitPhoto
-          photo={siteConfig.portraitBeach}
-          tone="color"
-          sizes="(min-width: 768px) 240px, 200px"
-          className="aspect-[4/5] max-w-[200px] rounded-[16px] md:max-w-none"
-        />
-        <div className="max-w-[640px]">
-          <h2 id="about-title" className="mb-7 font-serif text-[clamp(38px,4.6vw,60px)] leading-[1.02] tracking-[-0.02em]">
-            {aboutContent.title}
-          </h2>
-          <div className="space-y-4">
-            {aboutContent.paragraphs.map((p) => (
-              <p key={p} className="max-w-[56ch] text-ink-soft">
-                {p}
-              </p>
-            ))}
+      <Container>
+        <h2 id="about-title" className="mb-8 font-serif text-[clamp(38px,4.6vw,60px)] leading-[1.02] tracking-[-0.02em]">
+          {aboutContent.title}
+        </h2>
+        <div className="grid items-start gap-10 md:grid-cols-[1.25fr_1fr] md:gap-20">
+          <div>
+            <div className="space-y-4">
+              {aboutContent.paragraphs.map((p) => (
+                <p key={p} className="max-w-[56ch] text-ink-soft">
+                  {p}
+                </p>
+              ))}
+            </div>
+            <blockquote className="mt-9 border-l-2 border-brand-green pl-5 font-serif text-[clamp(24px,2.4vw,30px)] leading-[1.15] text-balance">
+              {aboutContent.quote}
+            </blockquote>
           </div>
-          <blockquote className="my-9 border-l-2 border-brand-green pl-5 font-serif text-[clamp(24px,2.4vw,30px)] leading-[1.15] text-balance">
-            {aboutContent.quote}
-          </blockquote>
           <dl className="border-t border-line">
             {aboutContent.credentials.map((c) => (
-              <div key={c.label} className="grid gap-0.5 border-b border-line py-3.5 text-base sm:grid-cols-[150px_1fr] sm:gap-4">
+              <div key={c.label} className="grid gap-0.5 border-b border-line py-3.5 text-base sm:grid-cols-[120px_1fr] sm:gap-4">
                 <dt className="text-ink-soft">{c.label}</dt>
                 <dd>{c.value}</dd>
               </div>
             ))}
-            <div className="grid gap-0.5 border-b border-line py-3.5 text-base sm:grid-cols-[150px_1fr] sm:gap-4">
-              <dt className="text-ink-soft">{aboutContent.press.label}</dt>
-              <dd>
-                {aboutContent.press.value}
-                <ul className="flex flex-wrap gap-x-5 text-[15px]">
-                  {aboutContent.press.links.map((link) => (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block py-1.5 text-brand-green underline underline-offset-4 hover:text-ink"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </dd>
-            </div>
           </dl>
+        </div>
+
+        <div className="mt-16 border-t border-line pt-10 md:mt-20">
+          <h3 className="mb-6 font-serif text-[clamp(26px,2.6vw,34px)] leading-[1.1]">{aboutContent.press.value}</h3>
+          <ul className="grid gap-6 sm:grid-cols-2">
+            {aboutContent.press.links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer" className="group block">
+                  {/* maxresdefault: 1280x720, ya en 16:9 (hqdefault viene en 4:3 con franjas). */}
+                  <span className="relative block aspect-video overflow-hidden rounded-[16px] bg-line">
+                    <Image
+                      src={`https://i.ytimg.com/vi/${youtubeId(link.href)}/maxresdefault.jpg`}
+                      alt={`Miniatura del ${link.label.toLowerCase()} de Cash is King`}
+                      fill
+                      sizes="(min-width: 1208px) 580px, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </span>
+                  <span className="mt-3 block font-medium underline-offset-4 group-hover:underline">
+                    {link.label}, en YouTube
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </section>
