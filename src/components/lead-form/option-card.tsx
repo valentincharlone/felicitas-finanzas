@@ -19,7 +19,7 @@ export function OptionCard({ label, hint, shape = "card", className, ...inputPro
         className={cn(
           "block border-[1.5px] border-line leading-snug transition-colors",
           "group-hover:border-ink-soft peer-checked:border-brand-green peer-checked:bg-brand-green/[0.07]",
-          "peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-lime",
+          "peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring",
           shape === "card" ? "rounded-[14px] px-4 py-3.5 text-base" : "rounded-full px-4 py-2.5 text-[15px]",
         )}
       >
