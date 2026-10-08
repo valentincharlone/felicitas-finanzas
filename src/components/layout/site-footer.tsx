@@ -19,12 +19,12 @@ export function SiteFooter() {
             </p>
             <p className="max-w-[62ch]">{footerContent.disclaimer}</p>
           </div>
-          <nav aria-label="Enlaces" className="flex flex-col gap-2 md:items-end">
+          <nav aria-label="Enlaces" className="flex flex-col md:items-end">
             {footerLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="font-medium text-ink hover:underline"
+                className="inline-block py-2 font-medium text-ink hover:underline"
                 {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
               >
                 {link.label}

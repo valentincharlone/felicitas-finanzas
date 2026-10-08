@@ -9,7 +9,7 @@ export function LeadSection() {
     <section
       id="formulario"
       aria-labelledby="lead-title"
-      className="scroll-mt-[68px] bg-brand-green py-20 text-white md:py-28"
+      className="scroll-mt-[68px] bg-brand-green py-16 text-white md:py-28"
     >
       <Container className="grid items-start gap-12 md:grid-cols-[1fr_1.3fr] md:gap-[72px]">
         <div className="md:sticky md:top-[110px]">

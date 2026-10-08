@@ -5,8 +5,8 @@ import { navLinks, siteConfig } from "@/content/site-content";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/85 text-ink backdrop-blur-md">
-      <Container className="flex h-[68px] items-center justify-between gap-8">
-        <a href="#top" className="font-serif text-[26px] tracking-[-0.01em]">
+      <Container className="flex h-[68px] items-center justify-between gap-4 sm:gap-8">
+        <a href="#top" className="font-serif text-[22px] tracking-[-0.01em] whitespace-nowrap sm:text-[26px]">
           {siteConfig.name}
         </a>
         <nav aria-label="Secciones" className="ml-auto max-lg:hidden">
@@ -20,8 +20,12 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-        <Button asChild size="sm" className="max-sm:hidden">
-          <a href="#formulario">Quiero una reunión</a>
+        {/* En celular el header no tiene nav: el botón es el único acceso rápido al formulario. */}
+        <Button asChild size="sm">
+          <a href="#formulario">
+            <span className="sm:hidden">Escribime</span>
+            <span className="max-sm:hidden">Quiero una reunión</span>
+          </a>
         </Button>
       </Container>
     </header>

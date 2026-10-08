@@ -7,11 +7,17 @@ import { cn } from "@/lib/utils";
 /** Variante 11 del /hero-lab ("Minimal · firma"): la foto chica funciona como firma del titular. */
 export function HeroSection() {
   return (
-    <section id="top" aria-labelledby="hero-title" className="bg-paper pt-20 text-ink md:pt-28">
+    <section id="top" aria-labelledby="hero-title" className="bg-paper pt-12 text-ink md:pt-28">
       <Container>
-        <div className="max-w-[880px] animate-in pb-16 duration-700 fade-in-0 slide-in-from-bottom-4 motion-reduce:animate-none md:pb-24">
-          <div className="mb-8 flex items-center gap-3.5">
-            <PortraitPhoto priority tone="mono" sizes="128px" className="aspect-square w-32 rounded-full" />
+        <div className="max-w-[880px] animate-in pb-14 duration-700 fade-in-0 slide-in-from-bottom-4 motion-reduce:animate-none md:pb-24">
+          <div className="mb-7 flex items-center gap-3.5 md:mb-8">
+            {/* En celular más chica (80px) para que el titular y el botón entren en la primera pantalla. */}
+            <PortraitPhoto
+              priority
+              tone="mono"
+              sizes="(min-width: 768px) 128px, 80px"
+              className="aspect-square w-20 rounded-full md:w-32"
+            />
             <p className="text-[15px] leading-snug">
               <span className="block font-semibold">{siteConfig.name}</span>
               <span className="text-ink-soft">{heroContent.byline}</span>

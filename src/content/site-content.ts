@@ -11,7 +11,16 @@ export const siteConfig = {
   tagline: "Bajo las finanzas a tierra, para que tu plata trabaje por vos.",
   description:
     "Asesoría financiera para personas y empresas, en Argentina y Estados Unidos. Una estrategia pensada para vos, no una receta general.",
+  // Dominio final (todavía no comprado). Solo se usa cuando `launched` es true.
   url: "https://felicitasfinanzas.com",
+  // TODO(lanzamiento): pasar a true cuando Feli valide los textos y el dominio apunte a Vercel.
+  // Con false: noindex en todo el sitio y las URLs absolutas usan el dominio de Vercel.
+  launched: false,
+  seo: {
+    title: "Felicitas Valenzuela | Asesoría financiera e inversiones",
+    description:
+      "Asesoría financiera para personas y empresas en Argentina y Estados Unidos. Agente Productor CNV N° 1782. Una estrategia pensada para vos.",
+  },
   location: "Buenos Aires, Argentina",
   cnv: {
     role: "Agente Productor",
@@ -37,8 +46,8 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Cómo funciona", href: "#como-funciona" },
   { label: "Sobre mí", href: "#sobre-mi" },
+  { label: "Cómo funciona", href: "#como-funciona" },
 ] as const;
 
 export const heroContent = {

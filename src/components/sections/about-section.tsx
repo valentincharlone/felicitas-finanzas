@@ -4,7 +4,7 @@ import { aboutContent, siteConfig } from "@/content/site-content";
 
 export function AboutSection() {
   return (
-    <section id="sobre-mi" aria-labelledby="about-title" className="scroll-mt-[68px] bg-surface py-20 md:py-28">
+    <section id="sobre-mi" aria-labelledby="about-title" className="scroll-mt-[68px] py-16 md:py-28">
       <Container className="grid items-start gap-10 md:grid-cols-[240px_1fr] md:gap-20">
         {/* Foto provisoria de 447px: no pasar de 240px de ancho para que no se pixelee. */}
         <PortraitPhoto
@@ -38,14 +38,14 @@ export function AboutSection() {
               <dt className="text-ink-soft">{aboutContent.press.label}</dt>
               <dd>
                 {aboutContent.press.value}
-                <ul className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-[15px]">
+                <ul className="flex flex-wrap gap-x-5 text-[15px]">
                   {aboutContent.press.links.map((link) => (
                     <li key={link.href}>
                       <a
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-brand-green underline underline-offset-4 hover:text-ink"
+                        className="inline-block py-1.5 text-brand-green underline underline-offset-4 hover:text-ink"
                       >
                         {link.label}
                       </a>

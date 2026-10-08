@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export function ProcessSection() {
   return (
-    <section id="como-funciona" aria-labelledby="process-title" className="scroll-mt-[68px] py-20 md:py-28">
+    <section id="como-funciona" aria-labelledby="process-title" className="scroll-mt-[68px] bg-surface py-16 md:py-28">
       <Container>
         <SectionHeading id="process-title" title={processContent.title} intro={processContent.intro} />
         <ol className="mt-14 grid border-t border-line sm:grid-cols-2 lg:grid-cols-4">

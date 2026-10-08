@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export function ServicesSection() {
   return (
-    <section id="servicios" aria-labelledby="services-title" className="scroll-mt-[68px] bg-surface py-20 md:py-28">
+    <section id="servicios" aria-labelledby="services-title" className="scroll-mt-[68px] bg-surface py-16 md:py-28">
       <Container>
         <SectionHeading id="services-title" title={servicesContent.title} intro={servicesContent.intro} />
         <div className="mt-14 grid gap-6 md:grid-cols-2">
