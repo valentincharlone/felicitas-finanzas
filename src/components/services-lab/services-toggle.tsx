@@ -43,7 +43,7 @@ export function ServicesToggle() {
         <article
           aria-live="polite"
           className={cn(
-            "mt-6 grid gap-8 rounded-[28px] p-7 sm:p-10 md:grid-cols-[1fr_1.3fr] md:gap-12",
+            "mt-6 grid gap-8 rounded-[16px] p-5 sm:p-10 md:grid-cols-[1fr_1.3fr] md:gap-12",
             dark ? "bg-brand-green text-white [--ring:var(--brand-lime)]" : "border border-line bg-paper",
           )}
         >
