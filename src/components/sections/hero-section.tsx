@@ -42,26 +42,33 @@ export function HeroSection() {
         </div>
       </Container>
 
-      <div className="border-y border-line text-ink-soft">
-        <Container className="grid md:grid-cols-3">
-          {heroContent.facts.map((fact, i) => (
-            <p
-              key={fact.strong}
-              className={cn(
-                "flex items-center gap-3 py-4 text-[15px] md:py-[22px]",
-                i > 0 && "border-t border-line md:border-t-0 md:border-l md:pl-7",
-              )}
-            >
-              <span aria-hidden className="size-2 shrink-0 rounded-full bg-brand-green" />
-              <span>
-                {fact.before}
-                <b className="font-semibold text-ink">{fact.strong}</b>
-                {fact.after}
-              </span>
-            </p>
-          ))}
-        </Container>
-      </div>
+      <HeroFacts />
     </section>
+  );
+}
+
+/** La franja de datos de confianza debajo del hero (+100 clientes, AR y EE.UU., CNV). */
+export function HeroFacts() {
+  return (
+    <div className="border-y border-line text-ink-soft">
+      <Container className="grid md:grid-cols-3">
+        {heroContent.facts.map((fact, i) => (
+          <p
+            key={fact.strong}
+            className={cn(
+              "flex items-center gap-3 py-4 text-[15px] md:py-[22px]",
+              i > 0 && "border-t border-line md:border-t-0 md:border-l md:pl-7",
+            )}
+          >
+            <span aria-hidden className="size-2 shrink-0 rounded-full bg-brand-green" />
+            <span>
+              {fact.before}
+              <b className="font-semibold text-ink">{fact.strong}</b>
+              {fact.after}
+            </span>
+          </p>
+        ))}
+      </Container>
+    </div>
   );
 }
