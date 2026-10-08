@@ -100,12 +100,14 @@ export function LeadForm() {
                 <span />
               )}
 
+              {/* Keys distintas: si React reutiliza el mismo <button> y le cambia el type a
+                  "submit" durante el click de "Siguiente", el navegador envía el form. */}
               {isLast ? (
-                <Button type="submit" disabled={isPending}>
+                <Button key="submit" type="submit" disabled={isPending}>
                   {isPending ? "Enviando…" : "Enviar mis respuestas"}
                 </Button>
               ) : (
-                <Button type="button" onClick={goNext}>
+                <Button key="next" type="button" onClick={goNext}>
                   Siguiente
                 </Button>
               )}
