@@ -46,7 +46,7 @@ export function AboutSection() {
               <li key={link.href}>
                 <a href={link.href} target="_blank" rel="noopener noreferrer" className="group block">
                   {/* maxresdefault: 1280x720, ya en 16:9 (hqdefault viene en 4:3 con franjas). */}
-                  <span className="relative block aspect-video overflow-hidden rounded-[16px] bg-line">
+                  <span className="relative block aspect-video overflow-hidden rounded-container bg-line">
                     <Image
                       src={`https://i.ytimg.com/vi/${youtubeId(link.href)}/maxresdefault.jpg`}
                       alt={`Miniatura del ${link.label.toLowerCase()} de Cash is King`}

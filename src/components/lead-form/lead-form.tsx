@@ -57,7 +57,7 @@ export function LeadForm() {
   });
 
   return (
-    <div className="rounded-[22px] bg-surface p-6 text-ink sm:rounded-[28px] sm:p-10">
+    <div className="rounded-container bg-surface p-6 text-ink sm:p-10">
       <FormProgress current={successName ? STEPS.length : step} total={STEPS.length} />
 
       {successName ? (

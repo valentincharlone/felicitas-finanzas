@@ -23,7 +23,7 @@ function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       className={cn(
-        "flex h-12 w-full items-center justify-between gap-2 rounded-xl border-[1.5px] border-input bg-paper px-3.5 text-left text-base transition-colors outline-none focus-visible:border-primary aria-invalid:border-destructive data-[placeholder]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0",
+        "flex h-12 w-full items-center justify-between gap-2 rounded-control border-[1.5px] border-input bg-paper px-3.5 text-left text-base transition-colors outline-none focus-visible:border-primary aria-invalid:border-destructive data-[placeholder]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0",
         className,
       )}
       {...props}
@@ -48,7 +48,7 @@ function SelectContent({
         data-slot="select-content"
         position={position}
         className={cn(
-          "relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] overflow-hidden rounded-xl border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+          "relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] overflow-hidden rounded-control border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
           position === "popper" &&
             "w-full min-w-(--radix-select-trigger-width) data-[side=bottom]:translate-y-1",
           className,

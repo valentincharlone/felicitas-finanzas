@@ -76,6 +76,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  /* Un solo radio para todo lo que se toca: botones, campos y opciones del formulario. */
+  --radius-control: 12px;
+  /* Y otro para los contenedores (tarjetas, formulario, miniaturas): un poco mayor porque son más grandes. */
+  --radius-container: 20px;
 }
 
 @layer base {

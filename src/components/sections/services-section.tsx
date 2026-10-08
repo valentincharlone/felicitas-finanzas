@@ -15,7 +15,7 @@ export function ServicesSection() {
               <article
                 key={group.id}
                 className={cn(
-                  "rounded-[28px] p-7 sm:p-10",
+                  "rounded-container p-7 sm:p-10",
                   dark ? "bg-brand-green text-white [--ring:var(--brand-lime)]" : "border border-line bg-paper",
                 )}
               >
