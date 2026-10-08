@@ -12,7 +12,7 @@ export function LeadSection() {
       className="scroll-mt-[68px] bg-brand-green py-16 text-white md:py-28"
     >
       <Container className="grid items-start gap-12 md:grid-cols-[1fr_1.3fr] md:gap-[72px]">
-        <div className="md:sticky md:top-[110px]">
+        <div className="[--ring:var(--brand-lime)] md:sticky md:top-[110px]">
           <h2
             id="lead-title"
             className="mb-5 font-serif text-[clamp(40px,5vw,68px)] leading-none tracking-[-0.02em] text-balance text-brand-mint"

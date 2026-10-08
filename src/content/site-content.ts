@@ -53,7 +53,8 @@ export const navLinks = [
 export const heroContent = {
   title: siteConfig.tagline,
   lead: siteConfig.description,
-  cta: "Completar el formulario",
+  // Nombre único de la acción principal: lo usan el hero, el header, situaciones y el footer.
+  cta: "Contame tu caso",
   ctaNote: "Te lleva 2 minutos",
   // Rol junto a la foto. La matrícula CNV va en los facts (no repetirla acá).
   byline: "Asesora financiera",
@@ -99,10 +100,8 @@ export const situationsContent = {
         "Más capital no siempre significa más tranquilidad. Gestionar patrimonio también es gestionar paz mental.",
     },
   ],
-  cta: {
-    text: "¿Te identificaste con alguna?",
-    link: "Contame tu caso",
-  },
+  // Antecede al link con heroContent.cta.
+  ctaLead: "¿Te identificaste con alguna?",
 } as const;
 
 export const servicesContent = {

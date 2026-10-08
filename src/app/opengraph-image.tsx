@@ -83,7 +83,7 @@ export default async function OpengraphImage() {
             color: colors.inkSoft,
           }}
         >
-          <div style={{ display: "flex" }}>Asesoría para personas y empresas · Argentina y EE.UU.</div>
+          <div style={{ display: "flex" }}>Asesoría para personas y empresas en Argentina y EE.UU.</div>
           <div style={{ display: "flex", color: colors.green }}>
             {siteConfig.cnv.role} CNV N° {siteConfig.cnv.number}
           </div>

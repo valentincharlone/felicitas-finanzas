@@ -1,6 +1,6 @@
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { situationsContent } from "@/content/site-content";
+import { heroContent, situationsContent } from "@/content/site-content";
 
 export function SituationsSection() {
   return (
@@ -21,12 +21,12 @@ export function SituationsSection() {
           ))}
         </ul>
         <p className="mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-lg">
-          <span className="text-ink-soft">{situationsContent.cta.text}</span>
+          <span className="text-ink-soft">{situationsContent.ctaLead}</span>
           <a
             href="#formulario"
-            className="inline-block py-2 font-semibold text-brand-green underline-offset-4 transition-colors hover:text-ink hover:underline"
+            className="inline-block py-2 font-semibold text-brand-green underline underline-offset-4 transition-colors hover:text-ink"
           >
-            {situationsContent.cta.link} <span aria-hidden>→</span>
+            {heroContent.cta}
           </a>
         </p>
       </Container>

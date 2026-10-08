@@ -35,7 +35,8 @@
   --destructive: #b3261e;
   --border: var(--line);
   --input: var(--line);
-  --ring: var(--brand-lime);
+  /* Foco: verde sobre fondos claros; los bloques verdes lo pisan con lima ([--ring:var(--brand-lime)]). */
+  --ring: var(--brand-green);
 }
 
 @theme inline {
@@ -90,7 +91,7 @@
     line-height: 1.6;
   }
   :focus-visible {
-    @apply outline-3 outline-offset-3 outline-brand-lime;
+    @apply outline-3 outline-offset-3 outline-ring;
   }
 }
 

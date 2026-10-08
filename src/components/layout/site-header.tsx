@@ -1,6 +1,6 @@
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
-import { navLinks, siteConfig } from "@/content/site-content";
+import { heroContent, navLinks, siteConfig } from "@/content/site-content";
 
 export function SiteHeader() {
   return (
@@ -22,10 +22,7 @@ export function SiteHeader() {
         </nav>
         {/* En celular el header no tiene nav: el botón es el único acceso rápido al formulario. */}
         <Button asChild size="sm">
-          <a href="#formulario">
-            <span className="sm:hidden">Escribime</span>
-            <span className="max-sm:hidden">Quiero una reunión</span>
-          </a>
+          <a href="#formulario">{heroContent.cta}</a>
         </Button>
       </Container>
     </header>

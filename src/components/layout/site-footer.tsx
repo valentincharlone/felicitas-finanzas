@@ -1,10 +1,10 @@
 import { Container } from "@/components/shared/container";
-import { footerContent, siteConfig } from "@/content/site-content";
+import { footerContent, heroContent, siteConfig } from "@/content/site-content";
 
 const footerLinks = [
   { label: "Instagram", href: siteConfig.links.instagram, external: true },
   { label: "LinkedIn", href: siteConfig.links.linkedin, external: true },
-  { label: "Pedir una reunión", href: "#formulario", external: false },
+  { label: heroContent.cta, href: "#formulario", external: false },
 ];
 
 export function SiteFooter() {

@@ -16,7 +16,7 @@ export function ServicesSection() {
                 key={group.id}
                 className={cn(
                   "rounded-[28px] p-7 sm:p-10",
-                  dark ? "bg-brand-green text-white" : "border border-line bg-paper",
+                  dark ? "bg-brand-green text-white [--ring:var(--brand-lime)]" : "border border-line bg-paper",
                 )}
               >
                 <h3 className="mb-2.5 font-serif text-[40px] leading-none">{group.title}</h3>

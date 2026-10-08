@@ -6,10 +6,12 @@ import { cn } from "@/lib/utils";
 
 /** Variante 11 del /hero-lab ("Minimal · firma"): la foto chica funciona como firma del titular. */
 export function HeroSection() {
+  const [titleStart, titleEnd] = heroContent.title.split(", ");
+
   return (
     <section id="top" aria-labelledby="hero-title" className="bg-paper pt-12 text-ink md:pt-28">
       <Container>
-        <div className="max-w-[880px] animate-in pb-14 duration-700 fade-in-0 slide-in-from-bottom-4 motion-reduce:animate-none md:pb-24">
+        <div className="animate-in pb-14 duration-700 fade-in-0 slide-in-from-bottom-4 motion-reduce:animate-none md:pb-24">
           <div className="mb-7 flex items-center gap-3.5 md:mb-8">
             {/* En celular más chica (80px) para que el titular y el botón entren en la primera pantalla. */}
             <PortraitPhoto
@@ -23,11 +25,12 @@ export function HeroSection() {
               <span className="text-ink-soft">{heroContent.byline}</span>
             </p>
           </div>
+          {/* El tagline es el elemento fuerte de la página: a todo el ancho, cortado en la coma. */}
           <h1
             id="hero-title"
-            className="pb-7 font-serif text-[clamp(44px,6.4vw,92px)] leading-[0.98] tracking-[-0.025em] text-balance"
+            className="pb-8 font-serif text-[clamp(46px,8.6vw,112px)] leading-[0.94] tracking-[-0.03em] text-balance"
           >
-            {heroContent.title}
+            {titleStart},<br className="max-md:hidden" /> {titleEnd}
           </h1>
           <p className="mb-8 max-w-[52ch] text-[19px] text-pretty text-ink-soft">{heroContent.lead}</p>
           <div className="flex flex-wrap items-center gap-4">
