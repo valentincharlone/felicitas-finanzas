@@ -9,7 +9,7 @@ import { heroContent, situationsContent } from "@/content/site-content";
 import { cn } from "@/lib/utils";
 
 /**
- * "¿Te pasa alguna de estas?" en formato selector (variante C del /situaciones-lab):
+ * "¿Te pasa alguna de estas?" en formato selector:
  * elegís tu situación y la respuesta aparece grande, con el botón al lado.
  * En celular la respuesta se abre debajo de la pregunta elegida.
  */

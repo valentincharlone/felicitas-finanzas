@@ -19,12 +19,7 @@ const STEPS = [
   { title: "¿Cómo te contacto?", Component: ContactStep },
 ] as const;
 
-type LeadFormProps = {
-  /** Solo para los labs de diseño: muestra el éxito sin guardar ni mandar mails. */
-  demo?: boolean;
-};
-
-export function LeadForm({ demo = false }: LeadFormProps) {
+export function LeadForm() {
   const [step, setStep] = useState(0);
   const [successName, setSuccessName] = useState<string | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -52,7 +47,7 @@ export function LeadForm({ demo = false }: LeadFormProps) {
   const onSubmit = form.handleSubmit((values) => {
     setServerError(null);
     startTransition(async () => {
-      const result = demo ? { ok: true as const, firstName: values.fullName.split(" ")[0] } : await submitLead(values);
+      const result = await submitLead(values);
       if (result.ok) {
         setSuccessName(result.firstName);
       } else {

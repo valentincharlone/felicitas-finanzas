@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { heroContent, siteConfig } from "@/content/site-content";
 import { cn } from "@/lib/utils";
 
-/** Variante 11 del /hero-lab ("Minimal · firma"): la foto chica funciona como firma del titular. */
+/** Hero: la foto chica funciona como firma; el titular a todo el ancho es el elemento fuerte. */
 export function HeroSection() {
   const [titleStart, titleEnd] = heroContent.title.split(", ");
 
@@ -16,7 +16,6 @@ export function HeroSection() {
             {/* En celular más chica (80px) para que el titular y el botón entren en la primera pantalla. */}
             <PortraitPhoto
               priority
-              tone="mono"
               sizes="(min-width: 768px) 128px, 80px"
               className="aspect-square w-20 rounded-full md:w-32"
             />
@@ -48,7 +47,7 @@ export function HeroSection() {
 }
 
 /** La franja de datos de confianza debajo del hero (+100 clientes, AR y EE.UU., CNV). */
-export function HeroFacts() {
+function HeroFacts() {
   return (
     <div className="border-y border-line text-ink-soft">
       <Container className="grid md:grid-cols-3">

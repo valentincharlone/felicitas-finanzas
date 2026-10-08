@@ -17,18 +17,22 @@ npm run dev
 src/
 ├── app/
 │   ├── layout.tsx            # fuentes (Instrument Serif + Figtree), metadata
-│   ├── page.tsx              # arma la página con las secciones
-│   └── globals.css           # paleta de marca + tokens de shadcn (Tailwind v4)
+│   ├── page.tsx              # arma la página con las secciones + JSON-LD
+│   ├── globals.css           # paleta de marca + tokens de shadcn (Tailwind v4)
+│   ├── opengraph-image.tsx   # imagen al compartir el link (se genera en el build)
+│   ├── icon.svg              # favicon
+│   ├── robots.ts, sitemap.ts
+│   └── api/keep-alive/       # cron diario para que Supabase gratis no se pause
 ├── actions/
 │   └── submit-lead.ts        # server action: valida, guarda en Supabase, avisa por mail
 ├── components/
 │   ├── layout/               # site-header, site-footer
-│   ├── sections/             # una sección por archivo (hero, situations, services…)
+│   ├── sections/             # hero, situations, services, about, process, lead
 │   ├── lead-form/            # formulario multi-paso
 │   │   ├── lead-form.tsx     # estado de pasos + submit
 │   │   ├── steps/            # profile-step, goals-step, contact-step
 │   │   └── option-card.tsx   # radio/checkbox con estilo de tarjeta
-│   ├── shared/               # container, section-heading, portrait-placeholder
+│   ├── shared/               # container, section-heading, portrait-photo, structured-data
 │   └── ui/                   # shadcn/ui (button, input, textarea, label, select)
 ├── content/
 │   ├── site-content.ts       # TODO el copy del sitio
@@ -37,11 +41,13 @@ src/
     ├── validations/lead-schema.ts   # schema zod compartido cliente/servidor
     ├── supabase/admin-client.ts     # cliente service role (solo servidor)
     ├── email/lead-notification.ts   # mail de aviso con Resend
+    ├── site-url.ts                  # URL pública (Vercel hasta el lanzamiento)
     └── env.ts
 supabase/schema.sql           # tabla `leads` con RLS
 ```
 
 **Para cambiar textos:** `src/content/site-content.ts`.
+**Para lanzar:** `siteConfig.launched = true` en ese mismo archivo (saca el noindex y usa el dominio final).
 **Para cambiar rangos de monto u objetivos:** `src/content/lead-options.ts` (el schema se actualiza solo).
 
 ## Supabase (opcional)

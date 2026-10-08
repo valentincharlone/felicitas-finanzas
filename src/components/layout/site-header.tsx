@@ -8,7 +8,7 @@ import { heroContent, navLinks, siteConfig } from "@/content/site-content";
 import { cn } from "@/lib/utils";
 
 /**
- * Header (variante B del /header-lab, "Aparece al bajar"): transparente sobre el hero;
+ * Header: transparente sobre el hero;
  * al bajar toma fondo, y el botón aparece recién cuando el botón del hero sale de la
  * pantalla, para que nunca se vean dos "Contame tu caso" a la vez.
  */

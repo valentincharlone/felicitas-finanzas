@@ -25,9 +25,6 @@ export const siteConfig = {
   cnv: {
     role: "Agente Productor",
     number: "1782",
-    // Registro público oficial (verificado el 2026-10-08). Muestra también su CUIT: confirmar con Feli.
-    registryUrl:
-      "https://www.cnv.gov.ar/SitioWeb/RegistrosPublicos/DetallesRegistrosPublicos/104541?tipoEntidadId=2&tipoAgente=302",
   },
   year: 2026,
   links: {
@@ -40,7 +37,7 @@ export const siteConfig = {
     src: "/images/feli-retrato.jpg",
     alt: "Retrato de Felicitas Valenzuela sonriendo",
   },
-  // Alternativa en evaluación en /hero-lab (447x447, provisoria también).
+  // Para la imagen al compartir el link y los datos para Google (447x447, provisoria también).
   portraitBeach: {
     src: "/images/feli-playa.png",
     alt: "Felicitas Valenzuela sonriendo en la playa, con camisa blanca",
@@ -103,8 +100,6 @@ export const situationsContent = {
         "Más capital no siempre significa más tranquilidad. Gestionar patrimonio también es gestionar paz mental.",
     },
   ],
-  // Antecede al link con heroContent.cta.
-  ctaLead: "¿Te identificaste con alguna?",
 } as const;
 
 export const servicesContent = {
@@ -166,39 +161,6 @@ export const processContent = {
   ],
 } as const;
 
-// Fuente: reel DdYmObihrqZ y captions. TODO(Feli): validar títulos e intro (son redacción nuestra).
-export const principlesContent = {
-  title: "Finanzas en orden",
-  intro: "Antes de hablar de inversiones, hay una base que conviene tener resuelta. Son los principios que más repito.",
-  items: [
-    {
-      title: "Fondo de emergencia",
-      description: "De 3 a 6 meses de gastos, en algo conservador. Es para imprevistos.",
-    },
-    {
-      title: "Pagate a vos primero",
-      description: "No inviertas “lo que te sobra”: separá tu parte apenas cobrás.",
-    },
-    {
-      title: "Primero, la deuda cara",
-      description: "Antes de invertir, cancelá la deuda más cara.",
-    },
-    {
-      title: "70 · 20 · 10",
-      description: "70% para gastos, 20% para inversión y 10% para tus gustos.",
-    },
-    {
-      title: "No dejes la plata parada",
-      description: "La plata quieta también pierde: contra la inflación y contra lo que podría estar rindiendo.",
-    },
-    {
-      title: "Constancia y paciencia",
-      description: "El mercado recompensa al que no abandona y no se deja llevar por la ansiedad.",
-    },
-  ],
-  quote: "No dejes a tu “yo de 80 años” librado a la voluntad de tu “yo de fin de mes”.",
-} as const;
-
 export const aboutContent = {
   title: "Hola, soy Feli",
   quote: "Invertir no es solo estrategia, es gestión emocional.",
@@ -216,7 +178,6 @@ export const aboutContent = {
   ],
   // Episodios verificados en YouTube (Neura Media).
   press: {
-    label: "En medios",
     value: "Invitada en Cash is King, de Neura Media",
     links: [
       { label: "Episodio del 16/12/2025", href: "https://www.youtube.com/watch?v=V5P_2DYw8lM" },
@@ -244,5 +205,4 @@ export const footerContent = {
     "La información de este sitio es de carácter general y no constituye una recomendación de inversión. Toda inversión implica riesgos y los rendimientos pasados no garantizan resultados futuros.",
   registry: `${siteConfig.cnv.role} registrada en la Comisión Nacional de Valores, matrícula N° ${siteConfig.cnv.number}.`,
   location: siteConfig.location,
-  verify: "Verificá la matrícula en la CNV",
 } as const;

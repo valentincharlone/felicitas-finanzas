@@ -6,7 +6,7 @@ import { aboutContent } from "@/content/site-content";
 const youtubeId = (href: string) => new URL(href).searchParams.get("v") ?? "";
 
 /**
- * Sobre mí (variante C del /sobre-mi-lab, sin la foto): relato y credenciales arriba,
+ * Sobre mí: relato y credenciales arriba,
  * y los episodios de Cash is King con su miniatura como prueba de trayectoria.
  */
 export function AboutSection() {

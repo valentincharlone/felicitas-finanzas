@@ -4,7 +4,7 @@ import { processContent } from "@/content/site-content";
 import { cn } from "@/lib/utils";
 
 /**
- * Cómo funciona (variante C del /como-funciona-lab, sin botón: el formulario está justo debajo).
+ * Cómo funciona (sin botón: el formulario está justo debajo).
  * En escritorio, 4 círculos unidos por una línea; en celular, la lista vertical.
  */
 export function ProcessSection() {
