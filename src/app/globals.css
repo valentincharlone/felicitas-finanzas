@@ -97,6 +97,16 @@
   :focus-visible {
     @apply outline-3 outline-offset-3 outline-ring;
   }
+  /* En iOS, dos toques rápidos hacen zoom (pasa al marcar varias opciones del form seguidas).
+     manipulation lo desactiva solo en los controles; el zoom con dos dedos sigue andando. */
+  a,
+  button,
+  input,
+  label,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
