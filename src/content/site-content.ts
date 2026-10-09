@@ -33,14 +33,10 @@ export const siteConfig = {
   },
   credit: { label: "vch.studio", href: "https://vch.studio" },
   // TODO(Feli): reemplazar por una foto en alta resolución (esta es provisoria, 400x400).
+  // También es la de la imagen al compartir el link y la de los datos para Google.
   portrait: {
     src: "/images/feli-retrato.jpg",
     alt: "Retrato de Felicitas Valenzuela sonriendo",
-  },
-  // Para la imagen al compartir el link y los datos para Google (447x447, provisoria también).
-  portraitBeach: {
-    src: "/images/feli-playa.png",
-    alt: "Felicitas Valenzuela sonriendo en la playa, con camisa blanca",
   },
 } as const;
 
