@@ -11,11 +11,23 @@ import { cn } from "@/lib/utils";
 /**
  * "¿Te pasa alguna de estas?" en formato selector:
  * elegís tu situación y la respuesta aparece grande, con el botón al lado.
- * En celular la respuesta se abre debajo de la pregunta elegida.
+ * En celular es un acordeón: la respuesta se abre debajo de la pregunta y tocarla de nuevo la cierra.
  */
 export function SituationsSection() {
   const [active, setActive] = useState(0);
+  // Solo cuenta en celular: en escritorio la respuesta elegida siempre se ve en la tarjeta.
+  const [open, setOpen] = useState(true);
   const current = situationsContent.items[active];
+
+  function select(i: number) {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (i === active && !isDesktop) {
+      setOpen((o) => !o);
+    } else {
+      setActive(i);
+      setOpen(true);
+    }
+  }
 
   return (
     <section aria-labelledby="situations-title" className="py-16 md:py-28">
@@ -29,23 +41,39 @@ export function SituationsSection() {
           <ul className="border-t border-line">
             {situationsContent.items.map((item, i) => {
               const selected = i === active;
+              const expanded = selected && open;
               return (
                 <li key={item.question} className="border-b border-line">
+                  {/* Celular: acordeón alineado al borde, con "+" que pasa a "−".
+                      Escritorio: barra verde a la izquierda en la elegida y las demás en gris. */}
                   <button
                     type="button"
-                    aria-pressed={selected}
-                    onClick={() => setActive(i)}
+                    aria-pressed={expanded}
+                    onClick={() => select(i)}
                     className={cn(
-                      "w-full cursor-pointer border-l-2 py-5 pl-5 text-left font-serif text-[clamp(22px,2.2vw,28px)] leading-[1.15] transition-colors",
+                      "flex w-full cursor-pointer items-start justify-between gap-4 py-5 text-left font-serif text-[clamp(22px,2.2vw,28px)] leading-[1.15] text-ink transition-colors md:border-l-2 md:pl-5",
                       selected
-                        ? "border-brand-green text-ink"
-                        : "border-transparent text-ink-soft hover:text-ink",
+                        ? "md:border-brand-green"
+                        : "md:border-transparent md:text-ink-soft md:hover:text-ink",
+                      // En celular, con una abierta, las cerradas bajan un poco para que la abierta se destaque.
+                      open && !selected && "max-md:text-ink/60",
                     )}
                   >
                     {item.question}
+                    {/* mt-[5px]: centra el ícono de 16px en la primera línea (22px × 1.15). */}
+                    <span aria-hidden className="relative mt-[5px] size-4 shrink-0 md:hidden">
+                      <span className="absolute inset-x-0 top-1/2 h-[1.5px] -translate-y-1/2 bg-current" />
+                      <span
+                        className={cn(
+                          "absolute inset-y-0 left-1/2 w-[1.5px] -translate-x-1/2 bg-current transition-transform duration-300 motion-reduce:transition-none",
+                          expanded && "rotate-90",
+                        )}
+                      />
+                    </span>
                   </button>
-                  {selected && (
-                    <p className="animate-in pb-6 pl-5 text-base text-pretty text-ink-soft duration-300 fade-in-0 slide-in-from-top-1 motion-reduce:animate-none md:hidden">
+                  {/* pr-8: la respuesta no pasa por debajo del ícono (16px + gap-4). */}
+                  {expanded && (
+                    <p className="animate-in pr-8 pb-6 text-[17px] text-pretty text-ink duration-300 fade-in-0 slide-in-from-top-1 motion-reduce:animate-none md:hidden">
                       {item.answer}
                     </p>
                   )}
