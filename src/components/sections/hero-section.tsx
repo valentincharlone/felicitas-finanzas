@@ -54,11 +54,12 @@ function HeroFacts() {
           <p
             key={fact.strong}
             className={cn(
-              "flex items-center gap-3 py-4 text-[15px] md:py-[22px]",
+              "flex items-start gap-3 py-4 text-[15px] md:py-[22px]",
               i > 0 && "border-t border-line md:border-t-0 md:border-l md:pl-7",
             )}
           >
-            <span aria-hidden className="size-2 shrink-0 rounded-full bg-brand-green" />
+            {/* mt-2 centra el punto en la primera línea (24px de alto) aunque el texto ocupe dos en celulares angostos. */}
+            <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-brand-green" />
             <span>
               {fact.before}
               <b className="font-semibold text-ink">{fact.strong}</b>
