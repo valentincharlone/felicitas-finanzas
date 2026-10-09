@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Figtree, Instrument_Serif } from "next/font/google";
 
 import { siteConfig } from "@/content/site-content";
@@ -52,7 +53,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es-AR"
       className={`${figtree.variable} ${instrumentSerif.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
