@@ -47,12 +47,13 @@ async function loadAssets() {
   const [serif, sans, photo] = await Promise.all([
     loadGoogleFont("Instrument+Serif"),
     loadGoogleFont("Figtree:wght@500"),
-    readFile(join(process.cwd(), "public", siteConfig.portraitBeach.src)),
+    // El retrato en blanco y negro, el mismo que la firma del hero.
+    readFile(join(process.cwd(), "public", siteConfig.portrait.src)),
   ]);
   return {
     serif,
     sans,
-    photoSrc: `data:image/png;base64,${photo.toString("base64")}`,
+    photoSrc: `data:image/jpeg;base64,${photo.toString("base64")}`,
   };
 }
 

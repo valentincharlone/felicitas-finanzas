@@ -12,7 +12,7 @@ export function StructuredData() {
     "@id": `${url}/#felicitas`,
     name: siteConfig.name,
     jobTitle: "Asesora financiera",
-    image: `${url}${siteConfig.portraitBeach.src}`,
+    image: `${url}${siteConfig.portrait.src}`,
     alumniOf: { "@type": "CollegeOrUniversity", name: "Universidad Austral" },
     sameAs: [siteConfig.links.instagram, siteConfig.links.linkedin],
   };
