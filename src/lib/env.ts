@@ -10,11 +10,14 @@ export const serverEnv = {
   supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
   resendApiKey: process.env.RESEND_API_KEY,
   leadNotifyEmail: process.env.LEAD_NOTIFY_EMAIL,
-  leadFromEmail: process.env.LEAD_FROM_EMAIL ?? "Formulario web <onboarding@resend.dev>",
+  leadFromEmail:
+    process.env.LEAD_FROM_EMAIL ?? "Formulario web <onboarding@resend.dev>",
 };
 
 export const isSupabaseConfigured = Boolean(
   serverEnv.supabaseUrl && serverEnv.supabaseServiceRoleKey,
 );
 
-export const isEmailConfigured = Boolean(serverEnv.resendApiKey && serverEnv.leadNotifyEmail);
+export const isEmailConfigured = Boolean(
+  serverEnv.resendApiKey && serverEnv.leadNotifyEmail,
+);

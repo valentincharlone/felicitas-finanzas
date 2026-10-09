@@ -7,7 +7,12 @@ type SectionHeadingProps = {
   className?: string;
 };
 
-export function SectionHeading({ id, title, intro, className }: SectionHeadingProps) {
+export function SectionHeading({
+  id,
+  title,
+  intro,
+  className,
+}: SectionHeadingProps) {
   return (
     <div className={className}>
       <h2
@@ -16,7 +21,9 @@ export function SectionHeading({ id, title, intro, className }: SectionHeadingPr
       >
         {title}
       </h2>
-      {intro && <p className={cn("max-w-[58ch] text-lg text-ink-soft")}>{intro}</p>}
+      {intro && (
+        <p className={cn("max-w-[58ch] text-lg text-ink-soft")}>{intro}</p>
+      )}
     </div>
   );
 }

@@ -5,7 +5,13 @@ import { Controller, useFormContext } from "react-hook-form";
 import { FieldError } from "@/components/lead-form/field-error";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { sourceOptions } from "@/content/lead-options";
 import type { LeadInput } from "@/lib/validations/lead-schema";
 
@@ -22,7 +28,12 @@ export function ContactStep() {
         <Label htmlFor="fullName" className="mb-3">
           Nombre y apellido
         </Label>
-        <Input id="fullName" autoComplete="name" aria-invalid={!!errors.fullName} {...register("fullName")} />
+        <Input
+          id="fullName"
+          autoComplete="name"
+          aria-invalid={!!errors.fullName}
+          {...register("fullName")}
+        />
         <FieldError message={errors.fullName?.message} />
       </div>
 
@@ -31,7 +42,13 @@ export function ContactStep() {
           <Label htmlFor="email" className="mb-3">
             Email
           </Label>
-          <Input id="email" type="email" autoComplete="email" aria-invalid={!!errors.email} {...register("email")} />
+          <Input
+            id="email"
+            type="email"
+            autoComplete="email"
+            aria-invalid={!!errors.email}
+            {...register("email")}
+          />
           <FieldError message={errors.email?.message} />
         </div>
         <div className="mb-5">
@@ -75,9 +92,17 @@ export function ContactStep() {
       </div>
 
       {/* Honeypot: oculto para personas, los bots lo completan. */}
-      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute left-[-9999px] h-0 w-0 overflow-hidden"
+      >
         <label htmlFor="website">No completar</label>
-        <input id="website" tabIndex={-1} autoComplete="off" {...register("website")} />
+        <input
+          id="website"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("website")}
+        />
       </div>
     </>
   );

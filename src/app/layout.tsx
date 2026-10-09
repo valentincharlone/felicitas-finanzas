@@ -23,7 +23,9 @@ export const metadata: Metadata = {
   title: siteConfig.seo.title,
   description: siteConfig.seo.description,
   alternates: { canonical: "/" },
-  robots: siteConfig.launched ? { index: true, follow: true } : { index: false, follow: false },
+  robots: siteConfig.launched
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
   openGraph: {
     type: "website",
     locale: "es_AR",
@@ -46,7 +48,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-AR" className={`${figtree.variable} ${instrumentSerif.variable}`}>
+    <html
+      lang="es-AR"
+      className={`${figtree.variable} ${instrumentSerif.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

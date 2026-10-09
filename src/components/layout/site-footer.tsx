@@ -13,7 +13,9 @@ export function SiteFooter() {
       <Container>
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
           <div className="space-y-2.5">
-            <p className="mb-3 font-serif text-[26px] text-ink">{siteConfig.name}</p>
+            <p className="mb-3 font-serif text-[26px] text-ink">
+              {siteConfig.name}
+            </p>
             <p className="max-w-[62ch]">
               {footerContent.registry} {footerContent.location}.
             </p>
@@ -25,7 +27,10 @@ export function SiteFooter() {
                 key={link.label}
                 href={link.href}
                 className="inline-block py-2 font-medium text-ink hover:underline"
-                {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
+                {...(link.external && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                })}
               >
                 {link.label}
               </a>
@@ -38,7 +43,12 @@ export function SiteFooter() {
           </span>
           <span>
             Sitio por{" "}
-            <a href={siteConfig.credit.href} target="_blank" rel="noopener noreferrer" className="underline">
+            <a
+              href={siteConfig.credit.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
               {siteConfig.credit.label}
             </a>
           </span>

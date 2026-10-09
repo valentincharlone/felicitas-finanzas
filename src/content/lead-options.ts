@@ -15,7 +15,12 @@ export const GOALS = [
   "otro",
 ] as const;
 // TODO(Feli): validar los rangos de monto con ella.
-export const AMOUNT_RANGES = ["hasta-10k", "10k-50k", "50k-150k", "mas-150k"] as const;
+export const AMOUNT_RANGES = [
+  "hasta-10k",
+  "10k-50k",
+  "50k-150k",
+  "mas-150k",
+] as const;
 export const LEAD_SOURCES = [
   "instagram",
   "linkedin",
@@ -38,13 +43,25 @@ export type Option<T extends string> = {
 
 export const clientTypeOptions: Option<ClientType>[] = [
   { value: "persona", label: "Para mí", hint: "Inversiones personales" },
-  { value: "empresa", label: "Para mi empresa", hint: "Tesorería y patrimonio" },
+  {
+    value: "empresa",
+    label: "Para mi empresa",
+    hint: "Tesorería y patrimonio",
+  },
 ];
 
 export const experienceOptions: Option<ExperienceLevel>[] = [
-  { value: "inicial", label: "Recién empiezo", hint: "Nunca invertí o casi nada" },
+  {
+    value: "inicial",
+    label: "Recién empiezo",
+    hint: "Nunca invertí o casi nada",
+  },
   { value: "intermedio", label: "Algo sé", hint: "Tengo algunas inversiones" },
-  { value: "avanzado", label: "Invierto hace años", hint: "Manejo varios instrumentos" },
+  {
+    value: "avanzado",
+    label: "Invierto hace años",
+    hint: "Manejo varios instrumentos",
+  },
 ];
 
 export const goalOptions: Option<Goal>[] = [
@@ -72,6 +89,9 @@ export const sourceOptions: Option<LeadSource>[] = [
 ];
 
 /** Busca el label de un value (para el mail de aviso). */
-export function labelFor<T extends string>(options: Option<T>[], value: T | undefined) {
+export function labelFor<T extends string>(
+  options: Option<T>[],
+  value: T | undefined,
+) {
   return options.find((o) => o.value === value)?.label ?? value ?? "—";
 }

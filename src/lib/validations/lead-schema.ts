@@ -14,15 +14,23 @@ import {
  */
 export const leadSchema = z.object({
   // Paso 1
-  clientType: z.enum(CLIENT_TYPES, { error: "Elegí si el asesoramiento es para vos o para tu empresa." }),
-  experience: z.enum(EXPERIENCE_LEVELS, { error: "Elegí tu nivel de experiencia." }),
+  clientType: z.enum(CLIENT_TYPES, {
+    error: "Elegí si el asesoramiento es para vos o para tu empresa.",
+  }),
+  experience: z.enum(EXPERIENCE_LEVELS, {
+    error: "Elegí tu nivel de experiencia.",
+  }),
 
   // Paso 2
   goals: z
     .array(z.enum(GOALS), { error: "Elegí al menos un objetivo." })
     .min(1, { error: "Elegí al menos un objetivo." }),
   amount: z.enum(AMOUNT_RANGES, { error: "Elegí un rango de monto." }),
-  message: z.string().trim().max(1000, { error: "Máximo 1000 caracteres." }).optional(),
+  message: z
+    .string()
+    .trim()
+    .max(1000, { error: "Máximo 1000 caracteres." })
+    .optional(),
 
   // Paso 3
   fullName: z
@@ -31,7 +39,9 @@ export const leadSchema = z.object({
     .min(3, { error: "Escribí tu nombre y apellido." })
     .max(120)
     // Evita que pongan el mail o el teléfono en este campo (llega como asunto del aviso).
-    .refine((v) => !/[@\d]/.test(v), { error: "Escribí solo tu nombre y apellido (sin mail ni números)." }),
+    .refine((v) => !/[@\d]/.test(v), {
+      error: "Escribí solo tu nombre y apellido (sin mail ni números).",
+    }),
   email: z.email({ error: "Revisá el email: falta el @ o el dominio." }),
   phone: z
     .string()

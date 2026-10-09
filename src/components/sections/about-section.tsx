@@ -11,7 +11,7 @@ const youtubeId = (href: string) => new URL(href).searchParams.get("v") ?? "";
  */
 export function AboutSection() {
   return (
-    <section id="sobre-mi" aria-labelledby="about-title" className="scroll-mt-[68px] py-16 md:py-28">
+    <section id="sobre-mi" aria-labelledby="about-title" className="scroll-mt-17 py-16 md:py-28">
       <Container>
         <h2 id="about-title" className="mb-8 font-serif text-[clamp(38px,4.6vw,60px)] leading-[1.02] tracking-[-0.02em]">
           {aboutContent.title}
@@ -39,8 +39,12 @@ export function AboutSection() {
           </dl>
         </div>
 
-        <div className="mt-16 border-t border-line pt-10 md:mt-20">
-          <h3 className="mb-6 font-serif text-[clamp(26px,2.6vw,34px)] leading-[1.1]">{aboutContent.press.value}</h3>
+        {/* En celular los datos de arriba ya cierran con su propia línea: sin borde, para no ver dos rayas seguidas.
+            En escritorio el borde sí hace falta (los datos van en la columna derecha). */}
+        <div className="mt-14 md:mt-20 md:border-t md:border-line md:pt-10">
+          <h3 className="mb-6 font-serif text-[clamp(26px,2.6vw,34px)] leading-[1.1] text-balance">
+            {aboutContent.press.value}
+          </h3>
           <ul className="grid gap-6 sm:grid-cols-2">
             {aboutContent.press.links.map((link) => (
               <li key={link.href}>

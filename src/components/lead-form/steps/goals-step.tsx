@@ -19,11 +19,19 @@ export function GoalsStep() {
     <>
       <fieldset className="mb-7">
         <legend className="mb-3 font-semibold">
-          ¿Qué te gustaría resolver? <span className="font-normal text-ink-soft">Podés elegir varias</span>
+          ¿Qué te gustaría resolver?{" "}
+          <span className="font-normal text-ink-soft">Podés elegir varias</span>
         </legend>
         <div className="flex flex-wrap gap-2">
           {goalOptions.map((o) => (
-            <OptionCard key={o.value} type="checkbox" shape="pill" value={o.value} label={o.label} {...register("goals")} />
+            <OptionCard
+              key={o.value}
+              type="checkbox"
+              shape="pill"
+              value={o.value}
+              label={o.label}
+              {...register("goals")}
+            />
           ))}
         </div>
         <FieldError message={errors.goals?.message} />
@@ -33,7 +41,13 @@ export function GoalsStep() {
         <legend className="mb-3 font-semibold">¿Cuánto pensás invertir?</legend>
         <div className="grid gap-2.5 sm:grid-cols-2">
           {amountOptions.map((o) => (
-            <OptionCard key={o.value} type="radio" value={o.value} label={o.label} {...register("amount")} />
+            <OptionCard
+              key={o.value}
+              type="radio"
+              value={o.value}
+              label={o.label}
+              {...register("amount")}
+            />
           ))}
         </div>
         <FieldError message={errors.amount?.message} />
@@ -41,7 +55,8 @@ export function GoalsStep() {
 
       <div className="mb-7">
         <Label htmlFor="message" className="mb-3">
-          Contame tu situación <span className="font-normal text-ink-soft">(opcional)</span>
+          Contame tu situación{" "}
+          <span className="font-normal text-ink-soft">(opcional)</span>
         </Label>
         <Textarea
           id="message"

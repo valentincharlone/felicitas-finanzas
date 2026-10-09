@@ -53,7 +53,9 @@ export async function sendLeadNotification(lead: LeadInput) {
   const subject = buildSubject(lead);
 
   if (!isEmailConfigured) {
-    console.info(`[lead] Email no configurado, se omite el aviso: "${subject}"`);
+    console.info(
+      `[lead] Email no configurado, se omite el aviso: "${subject}"`,
+    );
     return;
   }
 

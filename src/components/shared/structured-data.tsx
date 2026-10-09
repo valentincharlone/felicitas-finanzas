@@ -24,18 +24,32 @@ export function StructuredData() {
     url,
     image: `${url}/opengraph-image`,
     founder: { "@id": person["@id"] },
-    address: { "@type": "PostalAddress", addressLocality: "Buenos Aires", addressCountry: "AR" },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Buenos Aires",
+      addressCountry: "AR",
+    },
     // Atiende en Argentina; EE.UU. es donde invierte (está en la descripción), no zona de atención.
     areaServed: { "@type": "Country", name: "Argentina" },
-    knowsAbout: ["Inversiones", "Planificación financiera", "Gestión de tesorería", "Mercado de capitales"],
+    knowsAbout: [
+      "Inversiones",
+      "Planificación financiera",
+      "Gestión de tesorería",
+      "Mercado de capitales",
+    ],
   };
-  const jsonLd = { "@context": "https://schema.org", "@graph": [person, service] };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [person, service],
+  };
 
   return (
     <script
       type="application/ld+json"
       // Escapamos "<" como recomienda la guía de JSON-LD de Next (evita inyección de HTML).
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }

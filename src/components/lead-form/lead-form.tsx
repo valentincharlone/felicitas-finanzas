@@ -11,7 +11,11 @@ import { ContactStep } from "@/components/lead-form/steps/contact-step";
 import { GoalsStep } from "@/components/lead-form/steps/goals-step";
 import { ProfileStep } from "@/components/lead-form/steps/profile-step";
 import { Button } from "@/components/ui/button";
-import { leadSchema, STEP_FIELDS, type LeadInput } from "@/lib/validations/lead-schema";
+import {
+  leadSchema,
+  STEP_FIELDS,
+  type LeadInput,
+} from "@/lib/validations/lead-schema";
 
 const STEPS = [
   { title: "Sobre vos", Component: ProfileStep },
@@ -28,7 +32,14 @@ export function LeadForm() {
   const form = useForm<LeadInput>({
     resolver: zodResolver(leadSchema),
     mode: "onTouched",
-    defaultValues: { goals: [], message: "", fullName: "", email: "", phone: "", website: "" },
+    defaultValues: {
+      goals: [],
+      message: "",
+      fullName: "",
+      email: "",
+      phone: "",
+      website: "",
+    },
   });
 
   const cardRef = useRef<HTMLDivElement>(null);
@@ -52,11 +63,14 @@ export function LeadForm() {
     const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
     const top = card.getBoundingClientRect().top;
     // Sin behavior explícito: usa el scroll suave del CSS, que se apaga con reduced motion.
-    if (top < headerHeight) window.scrollTo({ top: window.scrollY + top - headerHeight - 16 });
+    if (top < headerHeight)
+      window.scrollTo({ top: window.scrollY + top - headerHeight - 16 });
   }, [step]);
 
   async function goNext() {
-    const valid = await form.trigger([...STEP_FIELDS[step]], { shouldFocus: true });
+    const valid = await form.trigger([...STEP_FIELDS[step]], {
+      shouldFocus: true,
+    });
     if (valid) {
       stepChanged.current = true;
       setStep((s) => s + 1);
@@ -82,8 +96,14 @@ export function LeadForm() {
   });
 
   return (
-    <div ref={cardRef} className="rounded-container bg-surface p-6 text-ink sm:p-10">
-      <FormProgress current={successName ? STEPS.length : step} total={STEPS.length} />
+    <div
+      ref={cardRef}
+      className="rounded-container bg-surface p-6 text-ink sm:p-10"
+    >
+      <FormProgress
+        current={successName ? STEPS.length : step}
+        total={STEPS.length}
+      />
 
       {successName ? (
         <LeadSuccess firstName={successName} />
@@ -93,7 +113,8 @@ export function LeadForm() {
             onSubmit={onSubmit}
             onKeyDown={(e) => {
               // Enter en un paso intermedio avanza en vez de enviar todo.
-              const isTextarea = (e.target as HTMLElement).tagName === "TEXTAREA";
+              const isTextarea =
+                (e.target as HTMLElement).tagName === "TEXTAREA";
               if (e.key === "Enter" && !isLast && !isTextarea) {
                 e.preventDefault();
                 void goNext();
@@ -102,11 +123,18 @@ export function LeadForm() {
             noValidate
             className="relative"
           >
-            <div key={step} className="animate-in fade-in-0 slide-in-from-right-3 duration-300 motion-reduce:animate-none">
+            <div
+              key={step}
+              className="animate-in fade-in-0 slide-in-from-right-3 duration-300 motion-reduce:animate-none"
+            >
               <p className="mb-1 text-sm text-ink-soft">
                 Paso {step + 1} de {STEPS.length}
               </p>
-              <h3 ref={titleRef} tabIndex={-1} className="mb-7 font-serif text-[34px] leading-tight outline-none">
+              <h3
+                ref={titleRef}
+                tabIndex={-1}
+                className="mb-7 font-serif text-[34px] leading-tight outline-none"
+              >
                 {title}
               </h3>
               <Component />
@@ -120,7 +148,12 @@ export function LeadForm() {
 
             <div className="flex items-center justify-between gap-4">
               {step > 0 ? (
-                <Button type="button" variant="ghost" className="px-0" onClick={goBack}>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="px-0"
+                  onClick={goBack}
+                >
                   Volver
                 </Button>
               ) : (

@@ -5,9 +5,17 @@ import { cn } from "@/lib/utils";
 
 export function ServicesSection() {
   return (
-    <section id="servicios" aria-labelledby="services-title" className="scroll-mt-[68px] bg-surface py-16 md:py-28">
+    <section
+      id="servicios"
+      aria-labelledby="services-title"
+      className="scroll-mt-17 bg-surface py-16 md:py-28"
+    >
       <Container>
-        <SectionHeading id="services-title" title={servicesContent.title} intro={servicesContent.intro} />
+        <SectionHeading
+          id="services-title"
+          title={servicesContent.title}
+          intro={servicesContent.intro}
+        />
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {servicesContent.groups.map((group) => {
             const dark = group.tone === "dark";
@@ -16,17 +24,34 @@ export function ServicesSection() {
                 key={group.id}
                 className={cn(
                   "rounded-container p-7 sm:p-10",
-                  dark ? "bg-brand-green text-white [--ring:var(--brand-lime)]" : "border border-line bg-paper",
+                  dark
+                    ? "bg-brand-green text-white [--ring:var(--brand-lime)]"
+                    : "border border-line bg-paper",
                 )}
               >
-                <h3 className="mb-2.5 font-serif text-[40px] leading-none">{group.title}</h3>
-                <p className={cn("mb-7", dark ? "text-[#bfd9cf]" : "text-ink-soft")}>{group.description}</p>
+                <h3 className="mb-2.5 font-serif text-[40px] leading-none">
+                  {group.title}
+                </h3>
+                <p
+                  className={cn(
+                    "mb-7",
+                    dark ? "text-[#bfd9cf]" : "text-ink-soft",
+                  )}
+                >
+                  {group.description}
+                </p>
                 <ul className="grid gap-3.5">
                   {group.items.map((item) => (
-                    <li key={item} className="grid grid-cols-[20px_1fr] gap-2.5">
+                    <li
+                      key={item}
+                      className="grid grid-cols-[20px_1fr] gap-2.5"
+                    >
                       <span
                         aria-hidden
-                        className={cn("mt-2.5 size-2 rounded-full", dark ? "bg-brand-lime" : "bg-brand-green")}
+                        className={cn(
+                          "mt-2.5 size-2 rounded-full",
+                          dark ? "bg-brand-lime" : "bg-brand-green",
+                        )}
                       />
                       {item}
                     </li>

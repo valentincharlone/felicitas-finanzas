@@ -61,7 +61,10 @@ export function SituationsSection() {
                   >
                     {item.question}
                     {/* mt-[5px]: centra el ícono de 16px en la primera línea (22px × 1.15). */}
-                    <span aria-hidden className="relative mt-[5px] size-4 shrink-0 md:hidden">
+                    <span
+                      aria-hidden
+                      className="relative mt-1.25 size-4 shrink-0 md:hidden"
+                    >
                       <span className="absolute inset-x-0 top-1/2 h-[1.5px] -translate-y-1/2 bg-current" />
                       <span
                         className={cn(
@@ -92,7 +95,7 @@ export function SituationsSection() {
                 key: al cambiar de situación la respuesta se vuelve a montar y entra con la animación. */}
             <p
               key={active}
-              className="mb-5 min-h-[calc(3*1.55em)] animate-in text-[22px] leading-[1.55] text-pretty text-ink duration-300 fade-in-0 slide-in-from-bottom-2 motion-reduce:animate-none"
+              className="mb-5 min-h-[4.65em] animate-in text-[22px] leading-[1.55] text-pretty text-ink duration-300 fade-in-0 slide-in-from-bottom-2 motion-reduce:animate-none"
             >
               {current.answer}
             </p>

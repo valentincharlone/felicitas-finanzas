@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MenuIcon, XIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
@@ -81,7 +81,7 @@ export function SiteHeader() {
         scrolled || menuOpen ? "border-line bg-paper/85 backdrop-blur-md" : "border-transparent bg-transparent",
       )}
     >
-      <Container className="flex h-[68px] items-center justify-between gap-4 sm:gap-8">
+      <Container className="flex h-17 items-center justify-between gap-4 sm:gap-8">
         <a href="#top" className="font-serif text-[24px] tracking-[-0.01em] whitespace-nowrap sm:text-[26px]">
           {siteConfig.name}
         </a>
@@ -127,9 +127,18 @@ export function SiteHeader() {
             aria-controls="menu-movil"
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
             onClick={() => setMenuOpen((open) => !open)}
-            className="-mr-2.5 grid size-11 cursor-pointer place-items-center rounded-control outline-none focus-visible:ring-3 focus-visible:ring-ring lg:hidden [&_svg]:size-6"
+            className="-mr-3 grid size-11 cursor-pointer place-items-center rounded-control outline-none focus-visible:ring-3 focus-visible:ring-ring lg:hidden [&_svg]:size-7"
           >
-            {menuOpen ? <XIcon aria-hidden /> : <MenuIcon aria-hidden />}
+            {/* strokeWidth 1.75 a 28px: el trazo queda en ~2px.
+                Burger propia (no la de lucide) para que las líneas sean más largas: de 3 a 21 sobre 24.
+                -mr-3: el extremo derecho de las líneas queda justo en el borde del contenido. */}
+            {menuOpen ? (
+              <XIcon aria-hidden strokeWidth={1.75} />
+            ) : (
+              <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round">
+                <path d="M3 6h18M3 12h18M3 18h18" />
+              </svg>
+            )}
           </button>
         </div>
       </Container>

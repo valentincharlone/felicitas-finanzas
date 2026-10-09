@@ -16,7 +16,11 @@ type PortraitPhotoProps = {
  * (300px si es cuadrada) para que no se pixelee en pantallas retina.
  * TODO: subir el límite cuando lleguen las fotos en alta.
  */
-export function PortraitPhoto({ className, priority = false, sizes = "240px" }: PortraitPhotoProps) {
+export function PortraitPhoto({
+  className,
+  priority = false,
+  sizes = "240px",
+}: PortraitPhotoProps) {
   return (
     <div className={cn("relative w-full overflow-hidden bg-line", className)}>
       <Image

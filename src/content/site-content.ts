@@ -75,7 +75,8 @@ export const situationsContent = {
     "Son las situaciones que más veo en las personas que me escriben. Si te identificás con alguna, probablemente pueda ayudarte.",
   items: [
     {
-      question: "Vendiste una propiedad y tenés los dólares guardados “por las dudas”.",
+      question:
+        "Vendiste una propiedad y tenés los dólares guardados “por las dudas”.",
       answer:
         "Lo que parece conservador puede ser una pérdida silenciosa. Tu patrimonio necesita estrategia, no pausa.",
     },
@@ -85,12 +86,14 @@ export const situationsContent = {
         "La tesorería no debería ser un depósito improductivo. Con instrumentos de corto plazo podés tener liquidez y rendimiento a la vez.",
     },
     {
-      question: "Querés empezar a pensar en tu jubilación y no sabés por dónde.",
+      question:
+        "Querés empezar a pensar en tu jubilación y no sabés por dónde.",
       answer:
         "No existe una sola forma de invertir para el retiro. La estrategia cambia según la etapa en la que estás.",
     },
     {
-      question: "“Soy conservador”… pero no sabés bien qué significa para tu plata.",
+      question:
+        "“Soy conservador”… pero no sabés bien qué significa para tu plata.",
       answer:
         "Tu perfil de inversor no es lo que decís, es cómo reaccionás. Lo definimos juntos, con datos reales.",
     },
@@ -110,7 +113,8 @@ export const servicesContent = {
     {
       id: "personas",
       title: "Personas",
-      description: "Para que tu ahorro deje de perder contra la inflación y tenga un objetivo claro.",
+      description:
+        "Para que tu ahorro deje de perder contra la inflación y tenga un objetivo claro.",
       tone: "light",
       items: [
         "Gestión de patrimonio a medida que tu capital crece",
@@ -140,15 +144,18 @@ export const servicesContent = {
 // TODO(Feli): validar que estos pasos reflejen su proceso real.
 export const processContent = {
   title: "Cómo funciona",
-  intro: "Antes de reunirnos me gusta entender tu caso. Así la primera charla ya es útil.",
+  intro:
+    "Antes de reunirnos me gusta entender tu caso. Así la primera charla ya es útil.",
   steps: [
     {
       title: "Completás el formulario",
-      description: "Unas preguntas cortas sobre vos, tu objetivo y tu experiencia.",
+      description:
+        "Unas preguntas cortas sobre vos, tu objetivo y tu experiencia.",
     },
     {
       title: "Reviso tu caso",
-      description: "Leo cada respuesta personalmente para ver si te puedo ayudar.",
+      description:
+        "Leo cada respuesta personalmente para ver si te puedo ayudar.",
     },
     {
       title: "Coordinamos una reunión",
@@ -165,11 +172,15 @@ export const aboutContent = {
   title: "Hola, soy Feli",
   quote: "Invertir no es solo estrategia, es gestión emocional.",
   paragraphs: [
-    "Soy licenciada en Administración de Empresas y trabajo en el mercado financiero desde 2021, acompañando a personas y empresas a invertir con criterio.",
+    // La formación va solo en los datos de abajo, para no repetirla.
+    "Trabajo en el mercado financiero desde 2021, acompañando a personas y empresas a invertir con criterio.",
     "Creo que la generalización trae preocupaciones evitables. Por eso cada estrategia se arma en función de lo que a cada uno lo deja tranquilo.",
   ],
   credentials: [
-    { label: "Formación", value: "Lic. en Administración de Empresas, Universidad Austral" },
+    {
+      label: "Formación",
+      value: "Lic. en Administración de Empresas, Universidad Austral",
+    },
     {
       label: "Registro",
       value: `${siteConfig.cnv.role} CNV, matrícula N° ${siteConfig.cnv.number}`,
@@ -180,8 +191,14 @@ export const aboutContent = {
   press: {
     value: "Invitada en Cash is King, de Neura Media",
     links: [
-      { label: "Episodio del 16/12/2025", href: "https://www.youtube.com/watch?v=V5P_2DYw8lM" },
-      { label: "Episodio del 03/02/2026", href: "https://www.youtube.com/watch?v=sdKgbEYbjnA" },
+      {
+        label: "Episodio del 16/12/2025",
+        href: "https://www.youtube.com/watch?v=V5P_2DYw8lM",
+      },
+      {
+        label: "Episodio del 03/02/2026",
+        href: "https://www.youtube.com/watch?v=sdKgbEYbjnA",
+      },
     ],
   },
 } as const;
