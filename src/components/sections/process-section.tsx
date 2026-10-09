@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Cómo funciona (sin botón: el formulario está justo debajo).
- * En escritorio, 4 círculos unidos por una línea; en celular, la lista vertical.
+ * En escritorio, 4 círculos unidos por una línea; en celular, la lista vertical con la línea hacia abajo.
  */
 export function ProcessSection() {
   return (
@@ -17,6 +17,10 @@ export function ProcessSection() {
           <span aria-hidden className="absolute top-5 right-[12.5%] left-[12.5%] h-px bg-line max-md:hidden" />
           {processContent.steps.map((step, i) => (
             <li key={step.title} className="relative grid grid-cols-[40px_1fr] gap-4 md:block md:text-center">
+              {/* En celular, el tramo de línea que baja hasta el círculo siguiente (cruza el gap-8 de la lista). */}
+              {i < processContent.steps.length - 1 && (
+                <span aria-hidden className="absolute top-10 -bottom-8 left-[19.5px] w-px bg-line md:hidden" />
+              )}
               <span
                 aria-hidden
                 className={cn(

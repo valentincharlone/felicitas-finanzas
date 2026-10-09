@@ -36,7 +36,6 @@ export function HeroSection() {
             <Button asChild>
               <a href="#formulario">{heroContent.cta}</a>
             </Button>
-            <span className="text-sm text-ink-soft">{heroContent.ctaNote}</span>
           </div>
         </div>
       </Container>

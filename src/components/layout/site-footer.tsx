@@ -9,7 +9,7 @@ const footerLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="pt-14 pb-12 text-sm text-ink-soft">
+    <footer className="pt-9 pb-8 md:pt-14 md:pb-12 text-sm text-ink-soft">
       <Container>
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
           <div className="space-y-2.5">
